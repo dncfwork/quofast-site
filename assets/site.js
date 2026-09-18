@@ -94,9 +94,7 @@
       'cta.title': 'Your next quotation can be on its way in a minute.',
       'cta.sub': 'Free to download on iPhone and Android.',
       'footer.privacy': 'Privacy Policy',
-      'footer.delete': 'Delete account',
-      'footer.contact': 'Contact',
-      'footer.made': 'Made in Malaysia'
+      'footer.contact': 'Contact'
     },
 
     ms: {
@@ -181,9 +179,7 @@
       'cta.title': 'Sebut harga seterusnya boleh dihantar dalam seminit.',
       'cta.sub': 'Percuma dimuat turun di iPhone dan Android.',
       'footer.privacy': 'Dasar Privasi',
-      'footer.delete': 'Padam akaun',
-      'footer.contact': 'Hubungi',
-      'footer.made': 'Dibuat di Malaysia'
+      'footer.contact': 'Hubungi'
     },
 
     zh: {
@@ -268,9 +264,7 @@
       'cta.title': '下一张报价单，一分钟就能发出去。',
       'cta.sub': 'iPhone 与安卓免费下载。',
       'footer.privacy': '隐私政策',
-      'footer.delete': '删除账号',
-      'footer.contact': '联系我们',
-      'footer.made': '马来西亚开发'
+      'footer.contact': '联系我们'
     }
   };
 
