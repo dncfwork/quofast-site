@@ -99,7 +99,7 @@
 
     ms: {
       'meta.title': 'QuoFast — Aplikasi Sebut Harga & Invois untuk Kontraktor Malaysia',
-      'meta.description': 'Cipta sebut harga dan invois profesional di telefon dalam masa kurang seminit dan hantar melalui WhatsApp. Sedia SST, dalam Bahasa Melayu, English dan 中文.',
+      'meta.description': 'Cipta sebut harga dan invois profesional di telefon dalam masa kurang seminit dan hantar melalui WhatsApp. Sedia SST, dalam Bahasa Melayu, English dan Mandarin.',
       'lang.label': 'Bahasa',
       'nav.how': 'Cara guna',
       'nav.features': 'Ciri-ciri',
@@ -108,7 +108,7 @@
       'nav.download': 'Muat turun',
       'hero.eyebrow': 'Dibina untuk kontraktor Malaysia',
       'hero.title': 'Hantar sebut harga profesional sebelum anda tinggalkan tapak.',
-      'hero.lede': 'Cipta sebut harga dan invois di telefon dalam masa kurang seminit, kemudian hantar PDF terus ke WhatsApp. Sedia SST, dalam Bahasa Melayu, English dan 中文.',
+      'hero.lede': 'Cipta sebut harga dan invois di telefon dalam masa kurang seminit, kemudian hantar PDF terus ke WhatsApp. Sedia SST, dalam Bahasa Melayu, English dan Mandarin.',
       'hero.free': 'Percuma dimuat turun · 3 dokumen pertama percuma untuk dihantar',
       'hero.chip.title': 'Sebut harga dihantar',
       'hero.chip.sub': 'RM 8,460.00 · baru sahaja',
