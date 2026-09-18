@@ -14,7 +14,7 @@
   var STRINGS = {
     en: {
       'meta.title': 'QuoFast — Quotation & Invoice App for Malaysian Contractors',
-      'meta.description': 'Create professional quotations and invoices on your phone in under a minute and send them on WhatsApp. SST-ready, in English, Bahasa Melayu and Chinese.',
+      'meta.description': 'Create professional quotations and invoices on your phone in under a minute and send them on WhatsApp. SST-ready, in English, Bahasa Melayu and Mandarin.',
       'lang.label': 'Language',
       'nav.how': 'How it works',
       'nav.features': 'Features',
@@ -23,7 +23,7 @@
       'nav.download': 'Download',
       'hero.eyebrow': 'Built for Malaysian contractors',
       'hero.title': 'Send a professional quotation before you leave the site.',
-      'hero.lede': 'Create quotations and invoices on your phone in under a minute, then send the PDF straight to WhatsApp. SST-ready, in English, Bahasa Melayu and Chinese.',
+      'hero.lede': 'Create quotations and invoices on your phone in under a minute, then send the PDF straight to WhatsApp. SST-ready, in English, Bahasa Melayu and Mandarin.',
       'hero.free': 'Free to download · Your first 3 documents are free to send',
       'hero.chip.title': 'Quotation sent',
       'hero.chip.sub': 'RM 8,460.00 · just now',
