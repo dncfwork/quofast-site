@@ -192,7 +192,7 @@
       'nav.faq': '常见问题',
       'nav.download': '下载',
       'hero.eyebrow': '专为马来西亚承包商打造',
-      'hero.title': '人还在工地，报价单已经发出去了。',
+      'hero.title': '客户还没走，报价单已经发到他手机。',
       'hero.lede': '手机上一分钟做好报价单和发票，PDF 直接发到 WhatsApp。支持 SST，中文、Bahasa Melayu、English 三语。',
       'hero.free': '免费下载 · 前 3 份单据免费发送',
       'hero.chip.title': '报价单已发送',
