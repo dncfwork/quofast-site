@@ -93,6 +93,8 @@
       'faq.more': 'Still have a question? Email us at',
       'cta.title': 'Your next quotation can be on its way in a minute.',
       'cta.sub': 'Free to download on iPhone and Android.',
+      'footer.quote': 'Quotation generator',
+      'footer.invoice': 'Invoice generator',
       'footer.privacy': 'Privacy Policy',
       'footer.contact': 'Contact'
     },
@@ -178,6 +180,8 @@
       'faq.more': 'Masih ada soalan? E-mel kami di',
       'cta.title': 'Sebut harga seterusnya boleh dihantar dalam seminit.',
       'cta.sub': 'Percuma dimuat turun di iPhone dan Android.',
+      'footer.quote': 'Penjana sebut harga',
+      'footer.invoice': 'Penjana invois',
       'footer.privacy': 'Dasar Privasi',
       'footer.contact': 'Hubungi'
     },
@@ -263,6 +267,8 @@
       'faq.more': '还有其他问题？发邮件到',
       'cta.title': '下一张报价单，一分钟就能发出去。',
       'cta.sub': 'iPhone 与安卓免费下载。',
+      'footer.quote': '报价单生成器',
+      'footer.invoice': '发票生成器',
       'footer.privacy': '隐私政策',
       'footer.contact': '联系我们'
     }

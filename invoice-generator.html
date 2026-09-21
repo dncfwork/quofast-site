@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Invoice Generator Malaysia — SST Ready, No Sign-Up | QuoFast</title>
+<meta name="description" content="Make a professional invoice online, free. Malaysian format with SST, RM totals, your SSM number and bank details for payment. No sign-up, no watermark, nothing uploaded.">
+<link rel="canonical" href="https://quofast.app/invoice-generator.html">
+<meta name="theme-color" content="#0a4ce6">
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QuoFast">
+<meta property="og:url" content="https://quofast.app/invoice-generator.html">
+<meta property="og:title" content="Free Invoice Generator — Malaysian format, SST ready">
+<meta property="og:description" content="Fill in the form, download the PDF. Bank details, SST and RM totals. No sign-up, no watermark, nothing uploaded.">
+<meta property="og:image" content="https://quofast.app/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/sora.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/generator.css">
+<script src="assets/generator.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Free Invoice Generator (Malaysia)",
+      "url": "https://quofast.app/invoice-generator.html",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Create a professional invoice in the Malaysian format, with SST, RM totals and bank details, and download it as a PDF. No sign-up required.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MYR" },
+      "publisher": { "@type": "Organization", "name": "QuoFast", "url": "https://quofast.app/" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "QuoFast", "item": "https://quofast.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Free invoice generator", "item": "https://quofast.app/invoice-generator.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What must a Malaysian invoice include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your business name, address and contact, your SSM registration number, the customer's name and address, an invoice number, the issue date, a due date, an itemised breakdown with quantities and unit prices, the total in Ringgit, and how you want to be paid. If your business is SST-registered, show SST on its own line and print your SST number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this count as an e-Invoice for LHDN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A MyInvois e-Invoice has to be submitted to LHDN's system and validated before it is sent to the customer. This generator produces an ordinary PDF invoice. Businesses with annual turnover below RM1 million are permanently exempt from e-Invoicing, which covers most small contractors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to charge SST on my invoice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if your business is SST-registered. Construction services — including renovation, electrical, plumbing and M&E work — carry 6% service tax once taxable turnover passes RM1.5 million in 12 months. Most other taxable services are 8% with an RM500,000 threshold. Below the threshold you do not register, and you must not charge SST."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I show a deposit the customer already paid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enter it in the deposit field. It is subtracted from the total and the document then shows a balance due instead of an amount due, so the customer can see exactly what is left to pay."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-doc="invoice">
+
+<!-- Icons: Lucide (https://lucide.dev), ISC License. Logo: QuoFast. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="logo" viewBox="252 262 622 642">
+      <circle cx="508" cy="518" r="203" fill="none" stroke="currentColor" stroke-width="89"/>
+      <line x1="546" y1="572" x2="716" y2="742" stroke="currentColor" stroke-width="80"/>
+      <path d="M92,0 L0,175 L46,175 L30,305 L120,126 L68,126 Z" fill="#14C6B3" transform="translate(737,763) rotate(-45) translate(-60,-152.5)"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#tool">Skip to the generator</a>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="./" aria-label="QuoFast home">
+      <svg class="brand-mark" aria-hidden="true"><use href="#logo"/></svg>
+      <span>QuoFast</span>
+    </a>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="./?src=generator">Get the app</a>
+    </div>
+  </div>
+</header>
+
+<section class="gen-hero">
+  <div class="container">
+    <a class="crumb" href="./"><svg class="icon" aria-hidden="true" style="width:15px;height:15px"><use href="#i-back"/></svg> QuoFast</a>
+    <h1>Free Invoice Generator</h1>
+    <p class="sub">Fill in the form and download a clean, professional invoice in the Malaysian format — SST, RM totals, your SSM number and the bank details you want to be paid into.</p>
+    <ul class="points">
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No sign-up</li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No watermark</li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> SST ready</li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Nothing uploaded</li>
+    </ul>
+  </div>
+</section>
+
+<main class="gen-main" id="tool">
+  <div class="container">
+    <div class="gen-grid">
+
+      <!-- ======================= editor ======================= -->
+      <form class="editor noprint" autocomplete="on" onsubmit="return false">
+        <h2>Your business</h2>
+        <div class="field">
+          <label for="coName">Business name</label>
+          <input id="coName" name="organization" placeholder="Your Company Sdn Bhd">
+        </div>
+        <div class="field">
+          <label for="coAddr">Address</label>
+          <textarea id="coAddr" placeholder="No. 1, Jalan Contoh, 47100 Puchong, Selangor"></textarea>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="coPhone">Phone</label><input id="coPhone" type="tel" placeholder="+6012 345 6789"></div>
+          <div class="field"><label for="coEmail">Email</label><input id="coEmail" type="email" placeholder="hello@company.com"></div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="coSsm">SSM no. <span class="opt">(optional)</span></label><input id="coSsm" placeholder="202301045678"></div>
+          <div class="field"><label for="coSst">SST no. <span class="opt">(optional)</span></label><input id="coSst" placeholder="W10-1234-5678"></div>
+        </div>
+
+        <h2>Bill to</h2>
+        <div class="field">
+          <label for="clName">Client name</label>
+          <input id="clName" placeholder="Client name">
+        </div>
+        <div class="field">
+          <label for="clAddr">Address</label>
+          <textarea id="clAddr" placeholder="No. 2, Jalan Pelanggan, 40170 Shah Alam, Selangor"></textarea>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="clPhone">Phone</label><input id="clPhone" type="tel" placeholder="+6019 876 5432"></div>
+          <div class="field"><label for="clEmail">Email</label><input id="clEmail" type="email" placeholder="client@email.com"></div>
+        </div>
+
+        <h2>Invoice details</h2>
+        <div class="row-2">
+          <div class="field"><label for="docNo">Invoice no.</label><input id="docNo"></div>
+          <div class="field"><label for="issueDate">Issue date</label><input id="issueDate" type="date"></div>
+        </div>
+        <div class="field">
+          <label for="tailDate">Payment due</label>
+          <input id="tailDate" type="date">
+        </div>
+
+        <h2>Items</h2>
+        <div id="items"></div>
+        <button type="button" class="btn-add" id="addItem">
+          <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg> Add item
+        </button>
+
+        <h2>Discount, tax &amp; deposit</h2>
+        <div class="field">
+          <label for="discount">Discount <span class="opt">(RM, optional)</span></label>
+          <input id="discount" type="number" step="any" min="0" inputmode="decimal" placeholder="0.00">
+        </div>
+        <div class="check">
+          <input type="checkbox" id="taxOn">
+          <div>
+            <label for="taxOn">Charge SST on this invoice</label>
+            <span class="why">Only tick this if your business is SST-registered. Construction, renovation, electrical, plumbing and M&amp;E work is 6%; most other taxable services are 8%.</span>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="taxLabel">Tax label</label><input id="taxLabel" value="SST"></div>
+          <div class="field"><label for="taxRate">Rate (%)</label><input id="taxRate" type="number" step="0.5" min="0" inputmode="decimal" value="6"></div>
+        </div>
+        <div class="field">
+          <label for="paid">Deposit already paid <span class="opt">(RM, optional)</span></label>
+          <input id="paid" type="number" step="any" min="0" inputmode="decimal" placeholder="0.00">
+        </div>
+
+        <h2>How to pay you</h2>
+        <div class="field">
+          <label for="bankName">Bank</label>
+          <input id="bankName" placeholder="Maybank">
+        </div>
+        <div class="field">
+          <label for="bankHolder">Account name</label>
+          <input id="bankHolder" placeholder="Your Company Sdn Bhd">
+        </div>
+        <div class="field">
+          <label for="bankAcct">Account number</label>
+          <input id="bankAcct" inputmode="numeric" placeholder="5123 4567 8901">
+        </div>
+
+        <h2>Notes</h2>
+        <div class="field">
+          <label for="notes" class="sub-label">Printed at the bottom of the invoice</label>
+          <textarea id="notes" style="min-height:82px">Please quote the invoice number when making payment.
+Late payment may be subject to a service charge.</textarea>
+        </div>
+
+        <div class="editor-actions">
+          <button type="button" class="btn btn-primary" id="printDoc">
+            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download PDF
+          </button>
+          <p class="hint">Choose <strong>Save as PDF</strong> as the printer.</p>
+          <button type="button" class="reset" id="resetDoc">Clear and start again</button>
+        </div>
+      </form>
+
+      <!-- ======================= live preview ======================= -->
+      <div>
+        <div class="stage-head noprint">
+          <span class="label">Live preview · A4</span>
+          <a class="swap" href="quotation-generator.html">Need a quotation instead? →</a>
+        </div>
+        <div class="sheet-stage">
+          <article class="sheet" id="sheet">
+            <div class="sheet-top">
+              <div>
+                <div class="sheet-co" id="pCoName"></div>
+                <div id="pCoMeta"></div>
+              </div>
+              <div class="sheet-kind">INVOICE</div>
+            </div>
+            <div class="rule"></div>
+
+            <div class="sheet-parties">
+              <div>
+                <div class="party-tag">Bill to</div>
+                <div class="party-name" id="pClName"></div>
+                <div id="pClMeta"></div>
+              </div>
+              <dl class="sheet-meta">
+                <dt>No.</dt><dd id="pDocNo"></dd>
+                <dt>Issued</dt><dd id="pIssue"></dd>
+                <dt>Payment due</dt><dd id="pTail"></dd>
+              </dl>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:44%">Description</th>
+                  <th class="num">Qty</th>
+                  <th class="num">Unit</th>
+                  <th class="num">Unit price</th>
+                  <th class="num">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="pRows"></tbody>
+            </table>
+
+            <div class="sheet-sums">
+              <div class="sum-row"><span>Subtotal</span><span id="pSub"></span></div>
+              <div class="sum-row" id="pDiscountRow"><span>Discount</span><span id="pDiscount"></span></div>
+              <div class="sum-row" id="pTaxRow"><span id="pTaxLabel"></span><span id="pTax"></span></div>
+              <div class="sum-row" id="pPaidRow"><span>Deposit paid</span><span id="pPaid"></span></div>
+              <div class="sum-band"><span id="pTotalLabel">AMOUNT DUE</span><span id="pTotal"></span></div>
+            </div>
+
+            <div class="sheet-foot">
+              <div class="foot-left">
+                <div id="pNotesBlock">
+                  <h4>Notes</h4>
+                  <p id="pNotes"></p>
+                </div>
+                <div class="sheet-thanks">THANK YOU FOR YOUR BUSINESS</div>
+              </div>
+              <div class="pay-box" id="pPayBox">
+                <h4>Payment details</h4>
+                <dl>
+                  <dt>Bank</dt><dd id="pBank"></dd>
+                  <dt>Account name</dt><dd id="pHolder"></dd>
+                  <dt>Account number</dt><dd id="pAcct"></dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================= app CTA ======================= -->
+    <aside class="gen-cta noprint">
+      <svg class="cta-mark" aria-hidden="true"><use href="#logo"/></svg>
+      <div class="cta-text">
+        <h2>Invoicing more than once a month?</h2>
+        <p>QuoFast remembers your clients, your items and your bank details, so the next invoice takes under a minute — and you can send it straight to WhatsApp from your phone.</p>
+      </div>
+      <a class="btn" href="./?src=generator">See the app</a>
+    </aside>
+  </div>
+</main>
+
+<!-- ======================= the words Google reads ======================= -->
+<section class="gen-seo noprint">
+  <div class="container">
+    <h2>What a Malaysian invoice has to show</h2>
+    <p>An invoice is issued <em>after</em> the work is delivered, and it is a demand for payment. The faster a customer can see what they owe, why they owe it and where to send it, the faster you get paid. An invoice for renovation, electrical, plumbing, aircon or contracting work should carry:</p>
+    <ul>
+      <li>Your business name, address and contact, plus your SSM registration number</li>
+      <li>The customer's name and address, under a clear <em>Bill to</em></li>
+      <li>An invoice number — sequential, so nothing goes missing at year end</li>
+      <li>The issue date and a payment due date, not just "upon receipt"</li>
+      <li>An itemised breakdown: description, quantity, unit and unit price</li>
+      <li>SST on its own line, with your SST number, if your business is registered</li>
+      <li>Any deposit already collected, subtracted so the balance due is obvious</li>
+      <li>Your bank name, account name and account number</li>
+    </ul>
+
+    <h3>Does this count as an e-Invoice for LHDN?</h3>
+    <p>No — and for most small contractors, it does not need to. A MyInvois e-Invoice has to be submitted to LHDN's system and validated before it reaches the customer; what this page produces is an ordinary PDF invoice.</p>
+    <p>Under the guidelines published in December 2025, businesses with annual turnover <strong>below RM 1 million are permanently exempt</strong> from e-Invoicing. Businesses turning over <strong>RM 1 million to RM 5 million</strong> came into scope on <strong>1 January 2026</strong>, with a relaxation period running to <strong>31 December 2027</strong>. If that is you, you will need software connected to MyInvois; a PDF is not enough.</p>
+    <p class="fine"><small>This is general information, not tax advice. Check your own position with LHDN's MyInvois portal or your tax agent.</small></p>
+
+    <h3>Do I have to charge SST?</h3>
+    <p>Only if your business is SST-registered. Since 1 July 2025 construction services — main contracting, sub-contracting, renovation, civil, M&amp;E, electrical and plumbing work — carry <strong>6% service tax</strong>, with registration required once taxable turnover passes <strong>RM 1.5 million</strong> over twelve months. Most other taxable services sit at <strong>8%</strong> with an <strong>RM 500,000</strong> threshold. Below the threshold you do not register, and charging SST when you are not registered is not allowed.</p>
+
+    <h3>How do I show a deposit the customer already paid?</h3>
+    <p>Put it in the deposit field. It is subtracted from the total and the band at the bottom changes from <em>amount due</em> to <em>balance due</em>, so there is no argument about what is still outstanding. This is the normal way to bill the second half of a renovation job you quoted earlier.</p>
+
+    <h3>What payment terms should I use?</h3>
+    <p>Fourteen days is common for trade work in Malaysia; thirty days is common when you are billing a company or a developer. Whichever you choose, print the date rather than writing "upon receipt" — a specific date is far easier to chase.</p>
+
+    <h2>About this generator</h2>
+    <p>Everything runs inside your browser. Nothing you type is uploaded, and there is no account to make. Your draft is kept on this device only, so you can close the tab and come back to it — clearing your browser data clears the draft too.</p>
+    <p>Use <strong>Download PDF</strong> and pick <em>Save as PDF</em> as the printer to get an A4 file you can send on WhatsApp or email. It is free, unlimited and unwatermarked.</p>
+
+    <div class="tools">
+      <a href="quotation-generator.html">
+        <strong>Free quotation generator →</strong>
+        <span>Same format, for before the job starts.</span>
+      </a>
+      <a href="./?src=generator">
+        <strong>QuoFast for phone →</strong>
+        <span>Saves your clients and items. Invoice from the truck.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer noprint">
+  <div class="container footer-inner">
+    <a class="brand" href="./" aria-label="QuoFast">
+      <svg class="brand-mark" aria-hidden="true"><use href="#logo"/></svg>
+      <span>QuoFast</span>
+    </a>
+    <nav class="footer-links" aria-label="Legal and contact">
+      <a href="./">Home</a>
+      <a href="quotation-generator.html">Quotation generator</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:support@quofast.app">Contact</a>
+    </nav>
+    <small>© 2026 QuoFast</small>
+  </div>
+</footer>
+
+</body>
+</html>
