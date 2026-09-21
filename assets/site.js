@@ -319,6 +319,13 @@
     root.lang = lang === 'zh' ? 'zh-Hans' : lang;
 
     each('[data-i18n]', function (el) { el.textContent = t(lang, el.getAttribute('data-i18n')); });
+    /* The free tools are real pages in their own language, not translations done here. Bahasa
+       Melayu readers go to the Malay ones; English and Mandarin readers go to the English ones. */
+    each('[data-tool]', function (el) {
+      var ms = el.getAttribute('data-tool') === 'quote' ? 'contoh-sebut-harga.html' : 'contoh-invois.html';
+      var en = el.getAttribute('data-tool') === 'quote' ? 'quotation-generator.html' : 'invoice-generator.html';
+      el.href = lang === 'ms' ? ms : en;
+    });
     each('[data-i18n-alt]', function (el) { el.alt = t(lang, el.getAttribute('data-i18n-alt')); });
     each('[data-i18n-aria]', function (el) { el.setAttribute('aria-label', t(lang, el.getAttribute('data-i18n-aria'))); });
     // Each store publishes its badge in the visitor's language; swapping the artwork keeps the

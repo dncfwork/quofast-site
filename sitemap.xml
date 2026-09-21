@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://quofast.app/</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://quofast.app/quotation-generator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quofast.app/quotation-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quofast.app/contoh-sebut-harga.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quofast.app/quotation-generator.html"/>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://quofast.app/invoice-generator.html</loc>
+    <loc>https://quofast.app/contoh-sebut-harga.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quofast.app/quotation-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quofast.app/contoh-sebut-harga.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quofast.app/quotation-generator.html"/>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <url>
+    <loc>https://quofast.app/invoice-generator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quofast.app/invoice-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quofast.app/contoh-invois.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quofast.app/invoice-generator.html"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://quofast.app/contoh-invois.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quofast.app/invoice-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quofast.app/contoh-invois.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quofast.app/invoice-generator.html"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <url>
     <loc>https://quofast.app/privacy.html</loc>
     <lastmod>2026-09-18</lastmod>

@@ -1,9 +1,10 @@
 /*
- * The engine behind quotation-generator.html and invoice-generator.html.
+ * The engine behind all four generator pages — quotation and invoice, in English and Bahasa
+ * Melayu.
  *
- * One script serves both pages. The page declares which document it is with data-doc on <body>
- * ("quotation" or "invoice"); every field that only one of them has is looked up defensively, so
- * a missing element is simply skipped rather than throwing.
+ * The page declares which document it is with data-doc on <body> ("quotation" or "invoice") and
+ * which language through <html lang>. Every field that only one document has is looked up
+ * defensively, so a missing element is simply skipped rather than throwing.
  *
  * Nothing here talks to a server. The draft is kept in localStorage on the visitor's own device so
  * a reload does not wipe their work — that is the whole of the storage the page does, and the copy
@@ -14,21 +15,52 @@
   'use strict';
 
   var DOC = document.body.dataset.doc === 'invoice' ? 'invoice' : 'quotation';
+  /* The draft is keyed by document type only, never by language, so switching English ↔ Bahasa
+     Melayu keeps everything the visitor has typed. */
   var STORE_KEY = 'qf-gen-' + DOC;
   var UNITS = ['nos', 'sqft', 'ft', 'set', 'lot', 'ls', 'hour', 'day', 'unit'];
 
-  var SAMPLES = {
-    quotation: [
-      { desc: 'Floor tiling — supply and lay', qty: 600, unit: 'sqft', price: 12 },
-      { desc: 'Interior wall painting (2 coats)', qty: 400, unit: 'sqft', price: 3.5 },
-      { desc: 'Plumbing point relocation', qty: 5, unit: 'nos', price: 120 }
-    ],
-    invoice: [
-      { desc: 'Floor tiling — supply and lay', qty: 600, unit: 'sqft', price: 12 },
-      { desc: 'Interior wall painting (2 coats)', qty: 400, unit: 'sqft', price: 3.5 },
-      { desc: 'Plumbing point relocation', qty: 5, unit: 'nos', price: 120 }
-    ]
-  };
+  /* Everything the sheet says that is written by this script rather than by the page. The static
+     labels live in each page's own HTML. */
+  var LANG = document.documentElement.lang === 'ms' ? 'ms' : 'en';
+  var T = {
+    en: {
+      months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      company: 'Your business name',
+      client: 'Client name',
+      ssm: 'SSM No. ',
+      sst: 'SST No. ',
+      total: 'TOTAL',
+      due: 'AMOUNT DUE',
+      balance: 'BALANCE DUE',
+      reset: 'Clear this document and start again?',
+      ui: { desc: 'Description', qty: 'Qty', unit: 'Unit', price: 'Unit price',
+            hint: 'What are you charging for?', remove: 'Remove this item' },
+      items: [
+        { desc: 'Floor tiling — supply and lay', qty: 600, unit: 'sqft', price: 12 },
+        { desc: 'Interior wall painting (2 coats)', qty: 400, unit: 'sqft', price: 3.5 },
+        { desc: 'Plumbing point relocation', qty: 5, unit: 'nos', price: 120 }
+      ]
+    },
+    ms: {
+      months: ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogos', 'Sep', 'Okt', 'Nov', 'Dis'],
+      company: 'Nama perniagaan anda',
+      client: 'Nama pelanggan',
+      ssm: 'No. SSM ',
+      sst: 'No. SST ',
+      total: 'JUMLAH',
+      due: 'PERLU DIBAYAR',
+      balance: 'BAKI PERLU DIBAYAR',
+      reset: 'Kosongkan dokumen ini dan mula semula?',
+      ui: { desc: 'Keterangan', qty: 'Kuantiti', unit: 'Unit', price: 'Harga seunit',
+            hint: 'Apa yang anda caj?', remove: 'Buang item ini' },
+      items: [
+        { desc: 'Kerja jubin lantai — bekal dan pasang', qty: 600, unit: 'sqft', price: 12 },
+        { desc: 'Cat dinding dalam (2 lapisan)', qty: 400, unit: 'sqft', price: 3.5 },
+        { desc: 'Pindah titik paip', qty: 5, unit: 'nos', price: 120 }
+      ]
+    }
+  }[LANG];
 
   var $ = function (id) { return document.getElementById(id); };
   var items = [];
@@ -63,8 +95,7 @@
     if (!iso) return '—';
     var parts = iso.split('-');
     if (parts.length !== 3) return iso;
-    var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var m = MONTHS[Number(parts[1]) - 1] || parts[1];
+    var m = T.months[Number(parts[1]) - 1] || parts[1];
     return Number(parts[2]) + ' ' + m + ' ' + parts[0];
   }
 
@@ -89,19 +120,19 @@
     }).join('');
     return '' +
       '<div class="line">' +
-        '<button type="button" class="kill" data-kill="' + i + '" aria-label="Remove this item">' +
+        '<button type="button" class="kill" data-kill="' + i + '" aria-label="' + T.ui.remove + '">' +
           '<svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>' +
         '</button>' +
         '<div class="field desc">' +
-          '<label for="d' + i + '" class="sub-label">Description</label>' +
-          '<input id="d' + i + '" value="' + esc(it.desc) + '" data-set="desc" data-i="' + i + '" placeholder="What are you charging for?">' +
+          '<label for="d' + i + '" class="sub-label">' + T.ui.desc + '</label>' +
+          '<input id="d' + i + '" value="' + esc(it.desc) + '" data-set="desc" data-i="' + i + '" placeholder="' + T.ui.hint + '">' +
         '</div>' +
         '<div class="line-grid">' +
-          '<div><label class="sub-label" for="q' + i + '">Qty</label>' +
+          '<div><label class="sub-label" for="q' + i + '">' + T.ui.qty + '</label>' +
             '<input id="q' + i + '" type="number" step="any" min="0" inputmode="decimal" value="' + esc(it.qty) + '" data-set="qty" data-i="' + i + '"></div>' +
-          '<div><label class="sub-label" for="u' + i + '">Unit</label>' +
+          '<div><label class="sub-label" for="u' + i + '">' + T.ui.unit + '</label>' +
             '<select id="u' + i + '" data-set="unit" data-i="' + i + '">' + opts + '</select></div>' +
-          '<div><label class="sub-label" for="p' + i + '">Unit price</label>' +
+          '<div><label class="sub-label" for="p' + i + '">' + T.ui.price + '</label>' +
             '<input id="p' + i + '" type="number" step="any" min="0" inputmode="decimal" value="' + esc(it.price) + '" data-set="price" data-i="' + i + '"></div>' +
         '</div>' +
       '</div>';
@@ -153,16 +184,16 @@
 
   function update() {
     /* Your business */
-    setText('pCoName', val('coName') || 'Your business name');
+    setText('pCoName', val('coName') || T.company);
     fillLines($('pCoMeta'), addressLines(val('coAddr')).concat([
       val('coPhone'),
       val('coEmail'),
-      val('coSsm') ? 'SSM No. ' + val('coSsm') : '',
-      val('coSst') ? 'SST No. ' + val('coSst') : ''
+      val('coSsm') ? T.ssm + val('coSsm') : '',
+      val('coSst') ? T.sst + val('coSst') : ''
     ]));
 
     /* Client */
-    setText('pClName', val('clName') || 'Client name');
+    setText('pClName', val('clName') || T.client);
     fillLines($('pClMeta'), addressLines(val('clAddr')).concat([val('clPhone'), val('clEmail')]));
 
     /* Document meta */
@@ -208,7 +239,7 @@
     if (paid > total) paid = total;
     show('pPaidRow', paid > 0);
     setText('pPaid', '− ' + money(paid));
-    setText('pTotalLabel', paid > 0 ? 'BALANCE DUE' : (DOC === 'invoice' ? 'AMOUNT DUE' : 'TOTAL'));
+    setText('pTotalLabel', paid > 0 ? T.balance : (DOC === 'invoice' ? T.due : T.total));
     setText('pTotal', money(total - paid));
 
     /* Notes and payment details */
@@ -292,7 +323,7 @@
   }
 
   function reset() {
-    if (!window.confirm('Clear this ' + DOC + ' and start again?')) return;
+    if (!window.confirm(T.reset)) return;
     try { localStorage.removeItem(STORE_KEY); } catch (e) {}
     location.reload();
   }
@@ -307,7 +338,7 @@
     if ($('docNo')) {
       $('docNo').value = (DOC === 'invoice' ? 'INV-' : 'QT-') + today.getFullYear() + '-001';
     }
-    items = SAMPLES[DOC].map(function (it) { return { desc: it.desc, qty: it.qty, unit: it.unit, price: it.price }; });
+    items = T.items.map(function (it) { return { desc: it.desc, qty: it.qty, unit: it.unit, price: it.price }; });
   }
 
   defaults();

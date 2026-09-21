@@ -1,5 +1,7 @@
 /*
- * Styles for the free document generators (quotation-generator.html, invoice-generator.html).
+ * Styles for the four free document generators: quotation and invoice, in English (quotation-
+ * generator.html, invoice-generator.html) and Bahasa Melayu (contoh-sebut-harga.html,
+ * contoh-invois.html).
  *
  * Loaded AFTER site.css, which supplies the fonts, the colour tokens and the shared .container /
  * .nav / .brand / .btn / .footer rules. Nothing here redefines a token; everything below is either
@@ -40,6 +42,18 @@
 }
 .doc-switch a:hover { color: var(--ink); }
 .doc-switch a[aria-current="page"] { background: var(--blue); color: #fff; }
+
+/* EN / BM, in the header. Same shape as the home page's language control, but links rather than
+   buttons: each language is its own page so that each can be found in its own language. */
+.lang-switch { display: inline-flex; padding: 2px; border-radius: 999px; background: var(--bg); }
+.lang-switch a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; height: 40px; padding: 0 10px; border-radius: 999px;
+  color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: none;
+  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.lang-switch a:hover { color: var(--ink); }
+.lang-switch a[aria-current="true"] { background: #fff; color: var(--ink); box-shadow: var(--shadow-sm); }
 
 .gen-hero .points {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px;
@@ -225,12 +239,15 @@
 .sheet-sums { width: 300px; margin: 16px 0 0 auto; }
 .sum-row { display: flex; justify-content: space-between; gap: 16px; padding: 5px 13px; font-size: 10pt; }
 .sum-band {
-  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  display: flex; justify-content: space-between; align-items: center; gap: 14px;
   margin-top: 7px; padding: 12px 14px; border-radius: 5px;
   background: linear-gradient(90deg, var(--blue-deep), var(--blue)); color: #fff;
-  font-size: 12pt; font-weight: 800;
+  font-size: 12pt; font-weight: 800; line-height: 1.2;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
+/* Malay labels run longer than English ones ("BAKI PERLU DIBAYAR"). Let the label wrap if it must,
+   but never the amount — a total split across two lines is unreadable. */
+.sum-band span:last-child { white-space: nowrap; }
 
 .sheet-foot { margin-top: 30px; display: flex; gap: 30px; align-items: flex-start; }
 .foot-left { flex: 1; min-width: 0; }
