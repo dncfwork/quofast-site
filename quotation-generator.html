@@ -190,9 +190,9 @@
           <div class="field"><label for="docNo">Quotation no.</label><input id="docNo"></div>
           <div class="field"><label for="issueDate">Issue date</label><input id="issueDate" type="date"></div>
         </div>
-        <div class="field">
-          <label for="tailDate">Valid until</label>
-          <input id="tailDate" type="date">
+        <div class="row-2">
+          <div class="field"><label for="tailDate">Valid until</label><input id="tailDate" type="date"></div>
+          <div class="field"><label for="currency">Currency</label><select id="currency"><option value="MYR">MYR — RM</option><option value="SGD">SGD — S$</option><option value="USD">USD — US$</option><option value="IDR">IDR — Rp</option><option value="GBP">GBP — £</option><option value="EUR">EUR — €</option></select></div>
         </div>
 
         <h2>Items</h2>
@@ -203,7 +203,7 @@
 
         <h2>Discount &amp; tax</h2>
         <div class="field">
-          <label for="discount">Discount <span class="opt">(RM, optional)</span></label>
+          <label for="discount">Discount <span class="opt">(<span data-cur>RM</span>, optional)</span></label>
           <input id="discount" type="number" step="any" min="0" inputmode="decimal" placeholder="0.00">
         </div>
         <div class="check">
@@ -346,6 +346,7 @@
     <h2>About this generator</h2>
     <p>Everything runs inside your browser. Nothing you type is uploaded, and there is no account to make. Your draft is kept on this device only, so you can close the tab and come back to it — clearing your browser data clears the draft too.</p>
     <p>Use <strong>Download PDF</strong> and pick <em>Save as PDF</em> as the printer to get an A4 file you can send on WhatsApp or email. It is free, unlimited and unwatermarked.</p>
+    <p>Billing a client outside Malaysia? Change the currency to SGD, USD, IDR, GBP or EUR and the whole document follows — Rupiah is shown without cents, as it is normally written.</p>
 
     <div class="tools">
       <a href="invoice-generator.html">

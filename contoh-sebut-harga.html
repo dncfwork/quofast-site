@@ -192,9 +192,9 @@
           <div class="field"><label for="docNo">No. sebut harga</label><input id="docNo"></div>
           <div class="field"><label for="issueDate">Tarikh dikeluarkan</label><input id="issueDate" type="date"></div>
         </div>
-        <div class="field">
-          <label for="tailDate">Sah sehingga</label>
-          <input id="tailDate" type="date">
+        <div class="row-2">
+          <div class="field"><label for="tailDate">Sah sehingga</label><input id="tailDate" type="date"></div>
+          <div class="field"><label for="currency">Mata wang</label><select id="currency"><option value="MYR">MYR — RM</option><option value="SGD">SGD — S$</option><option value="USD">USD — US$</option><option value="IDR">IDR — Rp</option><option value="GBP">GBP — £</option><option value="EUR">EUR — €</option></select></div>
         </div>
 
         <h2>Item</h2>
@@ -205,7 +205,7 @@
 
         <h2>Diskaun &amp; cukai</h2>
         <div class="field">
-          <label for="discount">Diskaun <span class="opt">(RM, pilihan)</span></label>
+          <label for="discount">Diskaun <span class="opt">(<span data-cur>RM</span>, pilihan)</span></label>
           <input id="discount" type="number" step="any" min="0" inputmode="decimal" placeholder="0.00">
         </div>
         <div class="check">
@@ -348,6 +348,7 @@
     <h2>Tentang penjana ini</h2>
     <p>Semuanya berjalan di dalam pelayar anda. Tiada apa-apa yang anda taip dimuat naik, dan tiada akaun perlu dibuka. Draf anda disimpan pada peranti ini sahaja, jadi anda boleh tutup tab dan kembali semula — membersihkan data pelayar akan turut memadam draf itu.</p>
     <p>Gunakan <strong>Muat turun PDF</strong> dan pilih <em>Simpan sebagai PDF</em> sebagai pencetak untuk mendapatkan fail A4 yang boleh anda hantar melalui WhatsApp atau e-mel. Ia percuma, tanpa had dan tanpa tera air.</p>
+    <p>Membilkan pelanggan di luar Malaysia? Tukar mata wang kepada SGD, USD, IDR, GBP atau EUR dan seluruh dokumen akan mengikut — Rupiah dipaparkan tanpa sen, seperti kebiasaannya ditulis.</p>
 
     <div class="tools">
       <a href="contoh-invois.html">

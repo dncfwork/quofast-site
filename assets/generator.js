@@ -78,10 +78,29 @@
     return !!(el && el.checked);
   }
 
+  /*
+   * The six currencies the app itself bills in. Prefixes are the unambiguous ones — "US$" and
+   * "S$" rather than a bare "$", because an invoice that does not say which dollar is a dispute
+   * waiting to happen. Rupiah is conventionally written without cents.
+   */
+  var CURRENCIES = {
+    MYR: { prefix: 'RM', dp: 2 },
+    SGD: { prefix: 'S$', dp: 2 },
+    USD: { prefix: 'US$', dp: 2 },
+    IDR: { prefix: 'Rp', dp: 0 },
+    GBP: { prefix: '\u00A3', dp: 2 },
+    EUR: { prefix: '\u20AC', dp: 2 }
+  };
+
+  function currency() {
+    return CURRENCIES[val('currency')] || CURRENCIES.MYR;
+  }
+
   function money(n) {
     var v = Number(n);
     if (!isFinite(v)) v = 0;
-    return 'RM ' + v.toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    var c = currency();
+    return c.prefix + ' ' + v.toLocaleString('en-MY', { minimumFractionDigits: c.dp, maximumFractionDigits: c.dp });
   }
 
   function qty(n) {
@@ -241,6 +260,11 @@
     setText('pPaid', '− ' + money(paid));
     setText('pTotalLabel', paid > 0 ? T.balance : (DOC === 'invoice' ? T.due : T.total));
     setText('pTotal', money(total - paid));
+
+    /* The money hints beside the discount and deposit fields follow the chosen currency. */
+    Array.prototype.forEach.call(document.querySelectorAll('[data-cur]'), function (el) {
+      el.textContent = currency().prefix;
+    });
 
     /* Notes and payment details */
     var notes = val('notes');
