@@ -335,6 +335,55 @@
     if (e.target.closest('#resetDoc')) reset();
   });
 
+  /* ------------------------------------------------------------------ switching document type */
+
+  /*
+   * The quotation and the invoice are separate pages so each can be found by its own search, but
+   * to the visitor they are one tool. Clicking the switch carries their details across first.
+   */
+  var OTHER_KEY = 'qf-gen-' + (DOC === 'invoice' ? 'quotation' : 'invoice');
+  var IDENTITY = ['coName', 'coAddr', 'coPhone', 'coEmail', 'coSsm', 'coSst'];
+  var JOB = ['clName', 'clAddr', 'clPhone', 'clEmail', 'discount', 'taxOn', 'taxLabel', 'taxRate'];
+
+  function read(id) {
+    var el = $(id);
+    if (!el) return null;
+    return el.type === 'checkbox' ? el.checked : el.value;
+  }
+
+  function carryAcross() {
+    try {
+      var raw = localStorage.getItem(OTHER_KEY);
+      var draft = raw ? JSON.parse(raw) : null;
+      var fresh = !draft || typeof draft !== 'object' || !draft.fields;
+      if (fresh) draft = { items: [], fields: {} };
+      if (!Array.isArray(draft.items)) draft.items = [];
+
+      // Your own business details are the same whichever document you are making.
+      IDENTITY.forEach(function (id) {
+        var v = read(id);
+        if (v !== null) draft.fields[id] = v;
+      });
+
+      // The client and the work travel only into an empty document — never over a draft in progress.
+      if (fresh) {
+        JOB.forEach(function (id) {
+          var v = read(id);
+          if (v !== null) draft.fields[id] = v;
+        });
+        draft.items = items.map(function (it) {
+          return { desc: it.desc, qty: it.qty, unit: it.unit, price: it.price };
+        });
+      }
+
+      localStorage.setItem(OTHER_KEY, JSON.stringify(draft));
+    } catch (e) { /* storage unavailable — the other page just starts fresh */ }
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-carry]')) carryAcross();
+  });
+
   var printBtn = $('printDoc');
   if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
 

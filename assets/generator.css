@@ -26,6 +26,21 @@
 .gen-hero .crumb:hover { color: var(--blue); }
 .gen-hero h1 { margin: 14px 0 0; font-size: clamp(28px, 5vw, 42px); }
 .gen-hero .sub { margin: 12px auto 0; max-width: 620px; color: var(--muted); font-size: 17px; }
+/* Two URLs, one tool. The pages stay separate so each can rank for its own search, but the
+   visitor sees a single switch and their details follow them across. */
+.doc-switch {
+  display: inline-flex; margin-top: 20px; padding: 4px;
+  background: #fff; border: 1px solid var(--line); border-radius: 999px; box-shadow: var(--shadow-sm);
+}
+.doc-switch a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 22px;
+  border-radius: 999px; color: var(--muted);
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+.doc-switch a:hover { color: var(--ink); }
+.doc-switch a[aria-current="page"] { background: var(--blue); color: #fff; }
+
 .gen-hero .points {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px;
   margin: 20px 0 0; padding: 0; list-style: none;
