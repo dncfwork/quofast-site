@@ -439,6 +439,29 @@
     if (e.target.closest('[data-carry]')) carryAcross();
   });
 
+  /* Play's install referrer is the only free attribution these pages get: what it
+     carries arrives in Play Console, so a post that actually sends someone can be
+     told apart from a stranger who searched. site.js does this for the home page,
+     but these pages never load site.js — so the badges shipped without it and every
+     install they earn would have read as organic. Same shape as site.js on purpose;
+     if one changes, change both. The App Store has no equivalent open parameter,
+     so those links stay bare rather than carrying something that does nothing. */
+  (function () {
+    var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.quofast.app';
+    var params = new URLSearchParams(window.location.search);
+    var src = (params.get('src') || params.get('utm_source') || 'tool')
+      .toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 32) || 'tool';
+    // Which page, and which of the two blocks on it — worth knowing whether the ask
+    // after the PDF outperforms the one at the foot of the page.
+    var page = (location.pathname.split('/').pop() || 'tool').replace(/\.html$/, '').slice(0, 32);
+    var links = document.querySelectorAll('a[data-store="android"]');
+    for (var i = 0; i < links.length; i++) {
+      var placement = links[i].closest('.dl-cta') ? 'after-pdf' : 'page-foot';
+      links[i].href = PLAY_URL + '&referrer=' + encodeURIComponent(
+        'utm_source=' + src + '&utm_medium=tool&utm_campaign=' + page + '&utm_content=' + placement);
+    }
+  })();
+
   var printBtn = $('printDoc');
   if (printBtn) printBtn.addEventListener('click', function () {
     // Someone who has just saved a PDF is the one visitor certain to want this
