@@ -380,8 +380,16 @@
       <span>QuoFast</span>
     </a>
     <nav class="footer-links" aria-label="Free tools, legal and contact">
-      <a href="quotation-generator.html" data-tool="quote" data-i18n="footer.quote">Quotation generator</a>
-      <a href="invoice-generator.html" data-tool="invoice" data-i18n="footer.invoice">Invoice generator</a>
+      <!-- The two cards in the Free tools section above carry data-tool, so site.js swaps their
+           href to the Malay page for a Malay reader. That leaves the Malay pages with no link
+           from this site's strongest page in the HTML a crawler sees — and they are the ones
+           aimed at "contoh sebut harga" and "contoh invois", the phrases people actually search.
+           These four are plain static hrefs for that reason: every tool page gets a real link
+           from the home page, whatever language the visitor is reading in. -->
+      <a href="quotation-generator.html" data-i18n="footer.quote">Quotation generator</a>
+      <a href="invoice-generator.html" data-i18n="footer.invoice">Invoice generator</a>
+      <a href="contoh-sebut-harga.html">Contoh sebut harga</a>
+      <a href="contoh-invois.html">Contoh invois</a>
       <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
       <a href="mailto:support@quofast.app" data-i18n="footer.contact">Contact</a>
     </nav>
