@@ -449,8 +449,33 @@
   (function () {
     var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.quofast.app';
     var params = new URLSearchParams(window.location.search);
-    var src = (params.get('src') || params.get('utm_source') || 'tool')
-      .toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 32) || 'tool';
+    var clean = function (v) {
+      return (v || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 32);
+    };
+    /* An explicit ?src= wins, but the posts these pages are for should not have to
+       carry a tracking parameter to be measurable — a link with one in it reads as
+       marketing in a group that only tolerates the free tool. So fall back to what
+       the click itself reveals: Facebook appends fbclid to every outbound link, and
+       failing that the referring host names itself. Only then "tool", which now
+       honestly means "came from somewhere we cannot see". */
+    var host = '';
+    try { host = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) { /* opaque referrer */ }
+    // l.facebook.com and lm.facebook.com are Facebook's link shims, not other sites.
+    host = host.replace(/^(www|l|lm|m)\./, '').split('.')[0];
+    var own = location.hostname.replace(/^www\./, '').split('.')[0];
+    var src = clean(params.get('src') || params.get('utm_source')) ||
+      (params.has('fbclid') ? 'facebook' : '') ||
+      (params.has('gclid') ? 'google' : '') ||
+      (host && host !== own ? clean(host) : '');
+    /* The two tools link to each other — "switch to invoice" carries the draft
+       across — and that hop is same-origin, so without this the second page would
+       overwrite a real source with our own hostname. First source seen wins, for
+       as long as the tab is open. */
+    try {
+      if (src) sessionStorage.setItem('qf-src', src);
+      else src = sessionStorage.getItem('qf-src') || '';
+    } catch (e) { /* storage unavailable — the hop just loses its source */ }
+    src = src || 'tool';
     // Which page, and which of the two blocks on it — worth knowing whether the ask
     // after the PDF outperforms the one at the foot of the page.
     var page = (location.pathname.split('/').pop() || 'tool').replace(/\.html$/, '').slice(0, 32);
