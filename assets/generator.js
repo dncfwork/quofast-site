@@ -440,7 +440,16 @@
   });
 
   var printBtn = $('printDoc');
-  if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+  if (printBtn) printBtn.addEventListener('click', function () {
+    // Someone who has just saved a PDF is the one visitor certain to want this
+    // again next week, so the store links wait for that moment rather than
+    // asking for a download before the tool has done anything for them. Revealed
+    // before print() because the call blocks until the dialog closes in some
+    // browsers, and the links should already be there when it does.
+    var cta = $('dlCta');
+    if (cta) cta.hidden = false;
+    window.print();
+  });
 
   update();
   fit();

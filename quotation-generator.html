@@ -26,9 +26,9 @@
 
 <link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/sora.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=202609211428">
-<link rel="stylesheet" href="assets/generator.css?v=202609211428">
-<script src="assets/generator.js?v=202609211428" defer></script>
+<link rel="stylesheet" href="assets/site.css?v=202609241800">
+<link rel="stylesheet" href="assets/generator.css?v=202609241800">
+<script src="assets/generator.js?v=202609241800" defer></script>
 
 <script type="application/ld+json">
 {
@@ -231,6 +231,15 @@
             <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download PDF
           </button>
           <p class="hint">Choose <strong>Save as PDF</strong> as the printer.</p>
+          <!-- Revealed by generator.js once the print dialog has been opened: the one moment
+               someone is certain to want this again next week. -->
+          <div class="dl-cta" id="dlCta" hidden>
+            <p>Next job, don’t type it all again. <strong>QuoFast</strong> keeps your clients, items and company details — and turns a quotation into an invoice in one tap.</p>
+            <div class="store-badges">
+              <a href="https://play.google.com/store/apps/details?id=com.quofast.app" data-store="android"><img src="assets/badges/google-play-en.png" width="161" height="48" alt="Get it on Google Play" loading="lazy"></a>
+              <a href="https://apps.apple.com/my/app/quofast-quote-invoice/id6797022510" data-store="ios"><img src="assets/badges/app-store-en.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a>
+            </div>
+          </div>
           <button type="button" class="reset" id="resetDoc">Clear and start again</button>
         </div>
       </form>
@@ -308,7 +317,10 @@
         <h2>Quoting more than once a month?</h2>
         <p>QuoFast remembers your clients, your items and your company details, so the next quotation takes under a minute — and turns into an invoice with one tap.</p>
       </div>
-      <a class="btn" href="./?src=generator">See the app</a>
+      <div class="store-badges">
+        <a href="https://play.google.com/store/apps/details?id=com.quofast.app" data-store="android"><img src="assets/badges/google-play-en.png" width="161" height="48" alt="Get it on Google Play" loading="lazy"></a>
+        <a href="https://apps.apple.com/my/app/quofast-quote-invoice/id6797022510" data-store="ios"><img src="assets/badges/app-store-en.svg" width="120" height="40" alt="Download on the App Store" loading="lazy"></a>
+      </div>
     </aside>
   </div>
 </main>

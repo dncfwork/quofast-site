@@ -335,3 +335,35 @@
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ---------------------------------------------------------------- store links
+
+   These four pages used to send everyone to the home page to hunt for a download
+   badge: two hops from the moment someone actually wanted the app, and each hop
+   loses most of them. The badges now point at the stores directly.
+
+   .dl-cta is the second half of that — it sits hidden inside the editor actions
+   and generator.js reveals it when the print dialog opens, so the ask arrives
+   after the tool has delivered a PDF rather than before. */
+
+.store-badges { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.store-badges a { display: block; line-height: 0; border-radius: 9px; transition: transform .18s ease, opacity .18s ease; }
+.store-badges a:hover { transform: translateY(-1px); opacity: .9; }
+.store-badges img { display: block; height: 44px; width: auto; }
+
+.dl-cta { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.dl-cta[hidden] { display: none; }
+.dl-cta p { margin: 0 0 11px; color: var(--muted); font-size: 13px; line-height: 1.55; text-align: center; }
+.dl-cta p strong { color: var(--ink); }
+.dl-cta .store-badges { justify-content: center; }
+.dl-cta .store-badges img { height: 40px; }
+
+/* The bottom block is on the blue gradient, where a plain badge sits fine but a
+   wrapped one looks broken — keep the pair together and let the text column give
+   way first. */
+.gen-cta .store-badges { flex: none; flex-wrap: nowrap; }
+
+@media (max-width: 560px) {
+  .store-badges img { height: 38px; }
+  .dl-cta .store-badges img { height: 36px; }
+}
