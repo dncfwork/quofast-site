@@ -79,6 +79,7 @@
         <li>No advertising or tracking SDKs. We do not track you across other apps or websites.</li>
         <li>No selling or renting of your data to anyone, ever.</li>
         <li>No location data.</li>
+        <li>This <strong>website</strong> counts page views using Cloudflare Web Analytics, which sets no cookies, stores nothing on your device, and builds no profile of you across sites. The app itself sends it nothing.</li>
       </ul>
 
       <h2>4. How your data is used</h2>
@@ -132,6 +133,7 @@
         <li>Tiada SDK pengiklanan atau penjejakan. Kami tidak menjejak anda merentas aplikasi atau laman web lain.</li>
         <li>Data anda tidak sesekali dijual atau disewakan kepada sesiapa.</li>
         <li>Tiada data lokasi.</li>
+        <li><strong>Laman web ini</strong> mengira paparan halaman menggunakan Cloudflare Web Analytics, yang tidak menggunakan kuki, tidak menyimpan apa-apa pada peranti anda, dan tidak membina profil anda merentas laman web. Aplikasi itu sendiri tidak menghantar apa-apa kepadanya.</li>
       </ul>
 
       <h2>4. Bagaimana data anda digunakan</h2>
@@ -185,6 +187,7 @@
         <li>没有任何广告或追踪 SDK。我们不会跨应用或网站追踪你。</li>
         <li>绝不向任何人出售或出租你的数据。</li>
         <li>不收集位置信息。</li>
+        <li><strong>本网站</strong>使用 Cloudflare Web Analytics 计算浏览量：不使用 cookie，不在你的装置上存放任何东西，也不会跨网站为你建立档案。App 本身不会传送任何资料给它。</li>
       </ul>
 
       <h2>4. 数据的用途</h2>
@@ -244,5 +247,12 @@
     else if (nav.startsWith('zh')) setLang('zh');
   })();
 </script>
+<!-- Cloudflare Web Analytics. No cookies, nothing stored on the visitor's device, and no
+     personal data collected — which is what lets the home page go on saying "No ads, no tracking".
+     The token is public by design: it says which site a page view belongs to and grants nothing.
+     Added 2026-09-25, because the funnel was dark between "someone opened the page" and "someone
+     installed the app", and a post is about to be aimed at exactly that stretch. -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'
+  data-cf-beacon='{"token": "8e151e216c9f42b587acf8e1618d88a7"}'></script>
 </body>
 </html>
