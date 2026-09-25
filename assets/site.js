@@ -104,6 +104,7 @@
       'footer.quote': 'Quotation generator',
       'footer.invoice': 'Invoice generator',
       'footer.privacy': 'Privacy Policy',
+      'footer.terms': 'Terms of Use',
       'footer.contact': 'Contact'
     },
 
@@ -199,6 +200,7 @@
       'footer.quote': 'Penjana sebut harga',
       'footer.invoice': 'Penjana invois',
       'footer.privacy': 'Dasar Privasi',
+      'footer.terms': 'Terma Penggunaan',
       'footer.contact': 'Hubungi'
     },
 
@@ -294,6 +296,7 @@
       'footer.quote': '报价单生成器',
       'footer.invoice': '发票生成器',
       'footer.privacy': '隐私政策',
+      'footer.terms': '使用条款',
       'footer.contact': '联系我们'
     }
   };
