@@ -47,6 +47,19 @@
   </url>
 
   <url>
+    <loc>https://quofast.app/quofast-vs-bookipi.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://quofast.app/quofast-vs-bukku.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://quofast.app/privacy.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>yearly</changefreq>
